@@ -5,15 +5,14 @@ $(document).ready ->
 	getFiles = -> 
 		gitignore = ""
 		input = split($("#select").val()).filter (choice) -> choice isnt ""
-		console.log input
 		for num, choice of input
 			if choice != "" and choice in Object.keys(choices)			
 				do (choice) -> $.getGithubFile("github", "gitignore", choices[choice],
 				    (contents) -> 
-				    	console.log "gh", choice, choices[choice]
 				    	gitignore = gitignore + "### " + choice + " ###\n" + contents + "\n\n"
 				    	$("#output").text gitignore
 				    	$("#output").attr "style", ""
+				    	$("#download").attr "style", ""
 						#$("#output").select()
 				)
 
@@ -58,3 +57,7 @@ $(document).ready ->
 
 	$("#generate").click ->
 		getFiles
+
+	$("#download").click ->
+		blob = new Blob [$("#output").text()], {type: "text/plain;charset=utf-8"}
+		saveAs blob, ".gitignore"

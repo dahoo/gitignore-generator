@@ -6,7 +6,8 @@
   <meta name="description" content=" Gitignore Generator">
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-  <script src="github-files.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/ecmascript" async="" src="https://raw.github.com/jamesward/github-files/master/src/main/javascript/github-files.js"  charset="utf-8"></script>
+  <script type="application/ecmascript" async="" src="https://raw.github.com/eligrey/FileSaver.js/master/FileSaver.js"/></script>
   <script src="gitignore-generator.js" type="text/javascript" charset="utf-8"></script>	
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 </head>
@@ -22,6 +23,7 @@
     <input id="select" size="100" type="search" autofocus placeholder="Select your programming languages or OS:"/>
   </div>
   <textarea id="output" "type="textarea" rows="30" cols="100" style="display:none"></textarea>
+  <p><a id="download" href="" style="display:none">Download</a></p>
   <p>Using <a href=https://github.com/github/gitignore/>GitHub's gitignore repository</a>.</p>
 </body>
 </html>

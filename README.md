@@ -8,4 +8,4 @@ Generates a *.gitignore* file based on used programming languages and operating 
 
 ***
 
-It uses [github's gitignore repository](https://github.com/github/gitignore/) and James Ward's [github-files.js](https://github.com/jamesward/github-files).
+Made using [github's gitignore repository](https://github.com/github/gitignore/), James Ward's [github-files.js](https://github.com/jamesward/github-files) and Eli Grey's [FileSaver.js](https://github.com/eligrey/FileSaver.js).

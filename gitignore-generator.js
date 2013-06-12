@@ -120,17 +120,16 @@
       input = split($("#select").val()).filter(function(choice) {
         return choice !== "";
       });
-      console.log(input);
       _results = [];
       for (num in input) {
         choice = input[num];
         if (choice !== "" && __indexOf.call(Object.keys(choices), choice) >= 0) {
           _results.push((function(choice) {
             return $.getGithubFile("github", "gitignore", choices[choice], function(contents) {
-              console.log("gh", choice, choices[choice]);
               gitignore = gitignore + "### " + choice + " ###\n" + contents + "\n\n";
               $("#output").text(gitignore);
-              return $("#output").attr("style", "");
+              $("#output").attr("style", "");
+              return $("#download").attr("style", "");
             });
           })(choice));
         } else {
@@ -172,8 +171,15 @@
         return false;
       }
     });
-    return $("#generate").click(function() {
+    $("#generate").click(function() {
       return getFiles;
+    });
+    return $("#download").click(function() {
+      var blob;
+      blob = new Blob([$("#output").text()], {
+        type: "text/plain;charset=utf-8"
+      });
+      return saveAs(blob, ".gitignore");
     });
   });
 
